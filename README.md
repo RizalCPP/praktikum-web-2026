@@ -22,3 +22,6 @@
 - Processor : 13th Gen Intel(R) Core (TM) i7-13700 (24 CPUs), ~2.1GHz
 - Memory : 16384MB RAM
 - DirectX Version : DirectX 12
+- node js version : v24.21.0
+- npm version : 11.19.0
+- git version : git version 2.56.0.windows.1
