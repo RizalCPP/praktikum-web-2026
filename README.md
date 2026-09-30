@@ -3,7 +3,7 @@
 **Informasi Mahasiswa**
 * **Nama:** [Rizal Septiazi]
 * **NIM :** [2406034]
-* **Kelas/Prodi:** Teknik Informatika - ITG
+* **Kelas/Prodi:** Teknik Informatika A - ITG
 * **Kode MK:** IFRWP5151
 
 ---
