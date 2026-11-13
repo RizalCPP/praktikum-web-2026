@@ -1,0 +1,92 @@
+<!-- File: public/index.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Data Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Sistem Informasi Data Mahasiswa</h2>
+    <p class="subtitle">Kelola data mahasiswa (Tambah, Lihat, Ubah, dan Hapus) secara real-time</p>
+
+    <!-- Notifikasi Alert -->
+    <div id="alertMessage" class="alert"></div>
+
+    <!-- Card Formulir Tambah / Edit -->
+    <div class="form-card">
+      <h3 id="formTitle">Tambah Mahasiswa Baru</h3>
+      <form id="mhsForm">
+        <input type="hidden" id="mhsId">
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="nim">NIM <span class="req">*</span></label>
+            <input type="text" id="nim" placeholder="Contoh: 2024001" required>
+          </div>
+          <div class="form-group flex-1">
+            <label for="nama">Nama Lengkap <span class="req">*</span></label>
+            <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="jurusan">Jurusan <span class="req">*</span></label>
+            <select id="jurusan" required>
+              <option value="">-- Pilih Jurusan --</option>
+              <option value="Teknik Informatika">Teknik Informatika</option>
+              <option value="Sistem Informasi">Sistem Informasi</option>
+              <option value="Teknik Elektro">Teknik Elektro</option>
+              <option value="Manajemen">Manajemen</option>
+              <option value="Akuntansi">Akuntansi</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="nama@mahasiswa.ac.id" required>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="btnSubmit" class="btn btn-primary">Simpan Mahasiswa</button>
+          <button type="button" id="btnCancel" class="btn btn-secondary">Batal</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Card Tabel Data Mahasiswa -->
+    <div class="table-card">
+      <div class="table-header">
+        <p class="total-counter">
+          Total Mahasiswa Terdaftar: <span id="totalMahasiswa">0</span> Orang
+        </p>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Cari nama atau NIM..."
+        >
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+            <th>Email</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="mhsTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
