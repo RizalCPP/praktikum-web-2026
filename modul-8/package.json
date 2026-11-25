@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@prisma/client": "^7.10.1",
+    "@prisma/orm-mysql": "^8.0.0-rc.25",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.10",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@prisma/cli-engine": "^0.10.4",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@tailwindcss/turbopack": "^4.3.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^26.6.7",
+    "@types/react": "19.3.1",
+    "prisma": "^8.0.0-rc.35",
+    "tailwindcss": "^4.3.5",
+    "typescript": "7.0.2"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "contract:emit": "prisma contract emit"
+  }
+}
