@@ -1,0 +1,48 @@
+[
+  {
+    "id": "table.user",
+    "label": "Create table user",
+    "summary": "Creates table user with its columns, primary key and unique constraints",
+    "operationClass": "additive",
+    "target": {
+      "id": "mysql",
+      "details": {
+        "objectType": "table",
+        "name": "user"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"user\" does not exist",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ?) = 0 AS result",
+        "params": [
+          "user"
+        ],
+        "expectation": {
+          "expects": "absent",
+          "object": "table \"user\""
+        }
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"user\"",
+        "sql": "CREATE TABLE `user` (\n  `email` varchar(191) NOT NULL,\n  `id` int NOT NULL AUTO_INCREMENT,\n  `name` varchar(191),\n  PRIMARY KEY (`id`),\n  CONSTRAINT `user_email_key` UNIQUE (`email`)\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"user\" exists",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ?) > 0 AS result",
+        "params": [
+          "user"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "table \"user\""
+        }
+      }
+    ]
+  }
+]
