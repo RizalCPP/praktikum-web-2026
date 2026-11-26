@@ -41,6 +41,36 @@
                     "length": 191
                   }
                 }
+              },
+              "nim": {
+                "nullable": true,
+                "type": {
+                  "codecId": "sql/varchar@1",
+                  "kind": "scalar",
+                  "typeParams": {
+                    "length": 191
+                  }
+                }
+              },
+              "password": {
+                "nullable": true,
+                "type": {
+                  "codecId": "sql/varchar@1",
+                  "kind": "scalar",
+                  "typeParams": {
+                    "length": 191
+                  }
+                }
+              },
+              "role": {
+                "nullable": false,
+                "type": {
+                  "codecId": "sql/varchar@1",
+                  "kind": "scalar",
+                  "typeParams": {
+                    "length": 191
+                  }
+                }
               }
             },
             "relations": {},
@@ -54,6 +84,15 @@
                 },
                 "name": {
                   "column": "name"
+                },
+                "nim": {
+                  "column": "nim"
+                },
+                "password": {
+                  "column": "password"
+                },
+                "role": {
+                  "column": "role"
                 }
               },
               "namespaceId": "__unbound__",
@@ -95,6 +134,34 @@
                   "typeParams": {
                     "length": 191
                   }
+                },
+                "nim": {
+                  "codecId": "sql/varchar@1",
+                  "dataType": "mysql/varchar",
+                  "nullable": true,
+                  "typeParams": {
+                    "length": 191
+                  }
+                },
+                "password": {
+                  "codecId": "sql/varchar@1",
+                  "dataType": "mysql/varchar",
+                  "nullable": true,
+                  "typeParams": {
+                    "length": 191
+                  }
+                },
+                "role": {
+                  "codecId": "sql/varchar@1",
+                  "dataType": "mysql/varchar",
+                  "default": {
+                    "kind": "literal",
+                    "value": "mahasiswa"
+                  },
+                  "nullable": false,
+                  "typeParams": {
+                    "length": 191
+                  }
                 }
               },
               "foreignKeys": [],
@@ -117,7 +184,7 @@
         "id": "__unbound__"
       }
     },
-    "storageHash": "312221b7c5cb080eec9bf4acd3fd18e9b56e9ad9a00c4e54025dc0cde8dafc3e"
+    "storageHash": "7be3a09a5e6a00b0df3d65b5f84c56f4de129c4a3429633b7d89616707de4a53"
   },
   "capabilities": {
     "sql": {
