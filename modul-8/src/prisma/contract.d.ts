@@ -16,7 +16,7 @@ import type {
 } from '@prisma/orm-mysql/contract-types';
 
 export type StorageHash =
-  StorageHashBase<'312221b7c5cb080eec9bf4acd3fd18e9b56e9ad9a00c4e54025dc0cde8dafc3e'>;
+  StorageHashBase<'7be3a09a5e6a00b0df3d65b5f84c56f4de129c4a3429633b7d89616707de4a53'>;
 export type ExecutionHash = ExecutionHashBase<string>;
 export type ProfileHash =
   ProfileHashBase<'5212eb1a1220f2d24de13f4efadd4c703f3a1098a5f57e09da0dc26ebb7201d0'>;
@@ -223,6 +223,9 @@ export namespace Models {
     email: FieldOutputTypes['__unbound__']['User']['email'];
     id: FieldOutputTypes['__unbound__']['User']['id'];
     name: FieldOutputTypes['__unbound__']['User']['name'];
+    nim: FieldOutputTypes['__unbound__']['User']['nim'];
+    password: FieldOutputTypes['__unbound__']['User']['password'];
+    role: FieldOutputTypes['__unbound__']['User']['role'];
     readonly [RelationKeys]?: never;
   };
 }
@@ -275,6 +278,31 @@ type ContractBase = Omit<
                   readonly typeParams: { readonly length: 191 };
                   readonly many: false;
                 };
+                readonly nim: {
+                  readonly dataType: 'mysql/varchar';
+                  readonly codecId: 'sql/varchar@1';
+                  readonly nullable: true;
+                  readonly typeParams: { readonly length: 191 };
+                  readonly many: false;
+                };
+                readonly password: {
+                  readonly dataType: 'mysql/varchar';
+                  readonly codecId: 'sql/varchar@1';
+                  readonly nullable: true;
+                  readonly typeParams: { readonly length: 191 };
+                  readonly many: false;
+                };
+                readonly role: {
+                  readonly dataType: 'mysql/varchar';
+                  readonly codecId: 'sql/varchar@1';
+                  readonly nullable: false;
+                  readonly default: {
+                    readonly kind: 'literal';
+                    readonly value: DefaultLiteralValue<'sql/varchar@1', 'mahasiswa'>;
+                  };
+                  readonly typeParams: { readonly length: 191 };
+                  readonly many: false;
+                };
               };
               primaryKey: { readonly columns: readonly ['id'] };
               uniques: readonly [{ readonly columns: readonly ['email'] }];
@@ -320,6 +348,30 @@ type ContractBase = Omit<
                   readonly typeParams: { readonly length: 191 };
                 };
               };
+              readonly nim: {
+                readonly nullable: true;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'sql/varchar@1';
+                  readonly typeParams: { readonly length: 191 };
+                };
+              };
+              readonly password: {
+                readonly nullable: true;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'sql/varchar@1';
+                  readonly typeParams: { readonly length: 191 };
+                };
+              };
+              readonly role: {
+                readonly nullable: false;
+                readonly type: {
+                  readonly kind: 'scalar';
+                  readonly codecId: 'sql/varchar@1';
+                  readonly typeParams: { readonly length: 191 };
+                };
+              };
             };
             readonly relations: Record<string, never>;
             readonly storage: {
@@ -329,6 +381,9 @@ type ContractBase = Omit<
                 readonly email: { readonly column: 'email' };
                 readonly id: { readonly column: 'id' };
                 readonly name: { readonly column: 'name' };
+                readonly nim: { readonly column: 'nim' };
+                readonly password: { readonly column: 'password' };
+                readonly role: { readonly column: 'role' };
               };
             };
           };

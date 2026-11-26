@@ -1,0 +1,179 @@
+[
+  {
+    "id": "column.user.nim",
+    "label": "Add column nim on user",
+    "summary": "Adds column nim to user",
+    "operationClass": "additive",
+    "target": {
+      "id": "mysql",
+      "details": {
+        "objectType": "column",
+        "name": "nim",
+        "table": "user"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"user\" exists",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ?) > 0 AS result",
+        "params": [
+          "user"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "table \"user\""
+        }
+      },
+      {
+        "description": "ensure column \"nim\" is missing on \"user\"",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?) = 0 AS result",
+        "params": [
+          "user",
+          "nim"
+        ],
+        "expectation": {
+          "expects": "absent",
+          "object": "column \"nim\" on \"user\""
+        }
+      }
+    ],
+    "execute": [
+      {
+        "description": "add column \"nim\" to \"user\"",
+        "sql": "ALTER TABLE `user` ADD COLUMN `nim` varchar(191)"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify column \"nim\" exists on \"user\"",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?) > 0 AS result",
+        "params": [
+          "user",
+          "nim"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "column \"nim\" on \"user\""
+        }
+      }
+    ]
+  },
+  {
+    "id": "column.user.password",
+    "label": "Add column password on user",
+    "summary": "Adds column password to user",
+    "operationClass": "additive",
+    "target": {
+      "id": "mysql",
+      "details": {
+        "objectType": "column",
+        "name": "password",
+        "table": "user"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"user\" exists",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ?) > 0 AS result",
+        "params": [
+          "user"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "table \"user\""
+        }
+      },
+      {
+        "description": "ensure column \"password\" is missing on \"user\"",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?) = 0 AS result",
+        "params": [
+          "user",
+          "password"
+        ],
+        "expectation": {
+          "expects": "absent",
+          "object": "column \"password\" on \"user\""
+        }
+      }
+    ],
+    "execute": [
+      {
+        "description": "add column \"password\" to \"user\"",
+        "sql": "ALTER TABLE `user` ADD COLUMN `password` varchar(191)"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify column \"password\" exists on \"user\"",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?) > 0 AS result",
+        "params": [
+          "user",
+          "password"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "column \"password\" on \"user\""
+        }
+      }
+    ]
+  },
+  {
+    "id": "column.user.role",
+    "label": "Add column role on user",
+    "summary": "Adds column role to user",
+    "operationClass": "additive",
+    "target": {
+      "id": "mysql",
+      "details": {
+        "objectType": "column",
+        "name": "role",
+        "table": "user"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"user\" exists",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ?) > 0 AS result",
+        "params": [
+          "user"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "table \"user\""
+        }
+      },
+      {
+        "description": "ensure column \"role\" is missing on \"user\"",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?) = 0 AS result",
+        "params": [
+          "user",
+          "role"
+        ],
+        "expectation": {
+          "expects": "absent",
+          "object": "column \"role\" on \"user\""
+        }
+      }
+    ],
+    "execute": [
+      {
+        "description": "add column \"role\" to \"user\"",
+        "sql": "ALTER TABLE `user` ADD COLUMN `role` varchar(191) NOT NULL DEFAULT 'mahasiswa'"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify column \"role\" exists on \"user\"",
+        "sql": "SELECT (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = ? AND COLUMN_NAME = ?) > 0 AS result",
+        "params": [
+          "user",
+          "role"
+        ],
+        "expectation": {
+          "expects": "present",
+          "object": "column \"role\" on \"user\""
+        }
+      }
+    ]
+  }
+]
